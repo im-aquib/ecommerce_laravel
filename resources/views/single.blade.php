@@ -85,6 +85,13 @@
               </div>
           </div>
       </div>
+
+      <style>
+        button {background: #000000;
+    border: 1px solid #000000;
+    color: #fff;
+    cursor: pointer;}
+      </style>
   </section>
 
   {{-- <section class="ftco-section">
