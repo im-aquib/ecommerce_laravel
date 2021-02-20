@@ -8546,13 +8546,13 @@ h1, h2, h3, h4, h5,
         background: #82ae46;
         color: #fff; }
   .btn.btn-black {
-    background: #000000;
-    border: 1px solid #000000;
-    color: #fff; }
+    background: #000000 !important;
+    border: 1px solid #000000 !important;
+    color: #fff !important; }
     .btn.btn-black:hover {
-      background: #82ae46;
-      border: 1px solid #82ae46;
-      color: #fff; }
+      background: #82ae46 !important;
+      border: 1px solid #82ae46 !important;
+      color: #fff !important; }
     .btn.btn-black.btn-outline-white {
       border: 1px solid #000000;
       background: transparent;
@@ -10011,3 +10011,9 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+.add_to_cart{
+  display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 4rem !important;
+}

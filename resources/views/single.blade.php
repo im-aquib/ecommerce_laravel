@@ -57,9 +57,11 @@
                   </div>
                           </div>
                           <div class="w-100"></div>
+                          
                           <form action="{{ route('cart.add') }}" method="post">
                             {{ csrf_field() }}
-                            <div class="input-group col-md-6 d-flex mb-3">
+
+                            <div class="input-group col-md-8 d-flex mb-3">
                                 <span class="input-group-btn mr-2">
                                    <button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
                                   <i class="ion-ios-remove"></i>
@@ -72,14 +74,29 @@
                                 </button>
                                 </span>
                              </div>
+                          
+
+                            {{-- <div class="input-group col-md-6 d-flex mb-3">
+                                <span class="input-group-btn mr-2">
+                                   <button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
+                                  <i class="ion-ios-remove"></i>
+                                   </button>
+                                   </span>
+                                <input type="text" id="quantity" name="qty" class="form-control input-number" value="1" min="1" max="100">
+                                <span class="input-group-btn ml-2">
+                                   <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                                    <i class="ion-ios-add"></i>
+                                </button>
+                                </span>
+                             </div> --}}
                              <div class="w-100"></div>
                              <div class="col-md-12">
                                  <p style="color: #000;">600 kg available</p>
                              </div>
                           <input type="hidden" name="pdt_id" value={{ $product->id }}>
                          </div>
-                         <p><a href="" type="submit" class="btn btn-black py-3 px-5">Add to Cart</a></p>
-                         <p><button type="submit" class="btn btn-black py-3 px-5">Add to Cart</button></p>
+                         {{-- <p><a href="" type="submit" class="btn btn-black py-3 px-5">Add to Cart</a></p> --}}
+                         <p><button type="submit" class="btn add_to_cart btn-black py-3 px-5">Add to Cart</button></p>
                             </form>
 
               </div>
@@ -138,5 +155,43 @@
       </div>
   </section> --}}
 
-
 @endsection   
+
+@section('js')
+<script>
+$(document).ready(function(){
+
+  var quantitiy=0;
+     $('.quantity-right-plus').click(function(e){
+          
+          // Stop acting like a button
+          e.preventDefault();
+          // Get the field name
+          var quantity = parseInt($('#quantity').val());
+          
+          // If is not undefined
+              
+              $('#quantity').val(quantity + 1);
+
+            
+              // Increment
+          
+      });
+
+       $('.quantity-left-minus').click(function(e){
+          // Stop acting like a button
+          e.preventDefault();
+          // Get the field name
+          var quantity = parseInt($('#quantity').val());
+          
+          // If is not undefined
+        
+              // Increment
+              if(quantity>0){
+              $('#quantity').val(quantity - 1);
+              }
+      });
+      
+  });
+</script>
+@endsection
